@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Downloader - The Ultimate Download Manager</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="https://www.svgrepo.com/show/485603/download.svg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0a09; /* stone-950 */
+            color: #e7e5e4; /* stone-200 */
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #a78bfa); /* sky-400 to violet-400 */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Download button styles */
+        .download-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+        .download-btn:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+        .download-btn:hover:before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Feature card hover effect */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(56, 189, 248, 0.1), 0 10px 10px -5px rgba(56, 189, 248, 0.08);
+        }
+
+        /* Scroll-triggered fade-in animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-black/30 backdrop-blur-sm z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <h1 class="text-xl font-bold text-white">Nexus Downloader</h1>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-stone-300 hover:text-sky-400 transition-colors">Features</a>
+                <a href="#how-it-works" class="text-stone-300 hover:text-sky-400 transition-colors">How It Works</a>
+            </nav>
+            <a href="https://github.com/orayen-nexus/nexusdo-install/raw/refs/heads/main/Nexus-Downloader.zip" class="download-btn hidden md:inline-block bg-sky-500 text-white font-semibold px-5 py-2 rounded-lg shadow-lg shadow-sky-500/20 hover:bg-sky-600">
+                Download Now
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center text-center pt-24 pb-12 px-6 relative overflow-hidden">
+            <!-- Background Glow -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-3xl max-h-3xl bg-sky-500/20 rounded-full blur-3xl animate-pulse"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white leading-tight">
+                    The <span class="gradient-text">Ultimate Gateway</span> to Any Online Resource.
+                </h2>
+                <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-stone-300">
+                    Effortlessly download videos, music, documents, and even entire game libraries from across the web. Fast, simple, and incredibly powerful.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <!-- IMPORTANT: Replace "#" with your actual download link -->
+                    <a href="https://github.com/orayen-nexus/nexusdo-install/raw/refs/heads/main/Nexus-Downloader.zip" id="download" class="download-btn w-full sm:w-auto flex items-center justify-center gap-3 bg-sky-500 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-2xl shadow-sky-500/30 hover:bg-sky-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+                        Download for Windows
+                    </a>
+                </div>
+                <p class="mt-4 text-sm text-stone-400">Free forever. No ads. No catch.</p>
+                
+                <!-- Mockup Image -->
+                <div class="mt-16">
+                    <img src="https://files.catbox.moe/yh1rg9.png" 
+                         alt="Nexus Downloader App Screenshot"
+                         class="rounded-2xl shadow-2xl shadow-black/50 border border-stone-700 max-w-4xl mx-auto"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x338/1c1917/e0e0e0?text=Image+Not+Found';">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 sm:py-32 px-6">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto fade-in-section">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">One Tool to Rule Them All</h3>
+                    <p class="mt-4 text-lg text-stone-300">
+                        Nexus isn't just a downloader. It's a comprehensive tool designed for power-users who demand speed and versatility.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="feature-card bg-stone-900/50 p-8 rounded-2xl border border-stone-800 fade-in-section">
+                        <div class="bg-sky-500/10 text-sky-400 w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h4 class="mt-6 text-xl font-bold text-white">Universal Compatibility</h4>
+                        <p class="mt-2 text-stone-300">Grab content from thousands of websites. If it's online, you can probably download it. From YouTube videos to academic papers.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-card bg-stone-900/50 p-8 rounded-2xl border border-stone-800 fade-in-section" style="transition-delay: 100ms;">
+                        <div class="bg-sky-500/10 text-sky-400 w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path></svg>
+                        </div>
+                        <h4 class="mt-6 text-xl font-bold text-white">Blazing Fast Speeds</h4>
+                        <p class="mt-2 text-stone-300">Utilizes multi-threaded technology to accelerate your downloads, saving you precious time. No more waiting around.</p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="feature-card bg-stone-900/50 p-8 rounded-2xl border border-stone-800 fade-in-section" style="transition-delay: 200ms;">
+                        <div class="bg-sky-500/10 text-sky-400 w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="m10 14-2 2 2 2"></path><path d="m14 18 2-2-2-2"></path></svg>
+                        </div>
+                        <h4 class="mt-6 text-xl font-bold text-white">Batch Downloads & Playlists</h4>
+                        <p class="mt-2 text-stone-300">Queue up hundreds of files or download entire video playlists with a single click. Set it and forget it.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20 sm:py-32 px-6 bg-stone-900/50">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto fade-in-section">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Get Started in Seconds</h3>
+                    <p class="mt-4 text-lg text-stone-300">
+                        A beautifully simple interface means you're only a few clicks away from your content.
+                    </p>
+                </div>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-center relative">
+                    <!-- Connecting lines for desktop -->
+                    <div class="hidden md:block absolute top-1/2 -translate-y-1/2 left-0 right-0 h-px bg-stone-700"></div>
+                    <div class="hidden md:block absolute top-1/2 -translate-y-1/2 left-1/4 right-1/4 h-px border-t-2 border-dashed border-sky-500/50"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative fade-in-section">
+                        <div class="w-16 h-16 bg-stone-800 border-2 border-sky-500 text-sky-400 rounded-full flex items-center justify-center text-2xl font-bold mx-auto">1</div>
+                        <h4 class="mt-6 text-xl font-semibold text-white">Paste the Link</h4>
+                        <p class="mt-2 text-stone-400">Copy the URL of the video, document, or resource you want and paste it into Nexus.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative fade-in-section" style="transition-delay: 150ms;">
+                        <div class="w-16 h-16 bg-stone-800 border-2 border-sky-500 text-sky-400 rounded-full flex items-center justify-center text-2xl font-bold mx-auto">2</div>
+                        <h4 class="mt-6 text-xl font-semibold text-white">Choose Format</h4>
+                        <p class="mt-2 text-stone-400">Select your desired quality and format (e.g., MP4, MP3, PDF) from the available options.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative fade-in-section" style="transition-delay: 300ms;">
+                        <div class="w-16 h-16 bg-stone-800 border-2 border-sky-500 text-sky-400 rounded-full flex items-center justify-center text-2xl font-bold mx-auto">3</div>
+                        <h4 class="mt-6 text-xl font-semibold text-white">Click Download</h4>
+                        <p class="mt-2 text-stone-400">Hit the download button and let our powerful engine do the rest. It's that simple.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-20 sm:py-32 px-6 text-center">
+            <div class="container mx-auto fade-in-section">
+                 <h2 class="text-3xl md:text-5xl font-black tracking-tighter text-white">
+                    Ready to Take Control?
+                </h2>
+                <p class="mt-4 max-w-xl mx-auto text-lg text-stone-300">
+                    Join thousands of satisfied users. Download Nexus Downloader today and experience the internet without limits.
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <!-- IMPORTANT: Replace "#" with your actual download link -->
+                    <a href="https://github.com/orayen-nexus/nexusdo-install/raw/refs/heads/main/Nexus-Downloader.zip" class="download-btn flex items-center justify-center gap-3 bg-sky-500 text-white text-lg font-bold px-8 py-4 rounded-xl shadow-2xl shadow-sky-500/30 hover:bg-sky-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Get Nexus for Free
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-stone-800">
+        <div class="container mx-auto text-center text-stone-400">
+            <p>&copy; 2024 Nexus Downloader. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Built for the community, with love.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for scroll-triggered animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: unobserve after animation
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
